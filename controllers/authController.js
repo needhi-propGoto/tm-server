@@ -5,7 +5,7 @@ const { generateToken } = require("../utils/jwt");
 const signUp = async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
-    console.log('hi, inside try block');
+    // console.log('hi, inside try block');
     const hashedPassword = await bcrypt.hash(password, 10);
     const result = await db.query(
       "INSERT INTO users (name, email, password, role) VALUES ($1, $2, $3, $4) RETURNING *",

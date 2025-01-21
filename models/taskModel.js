@@ -34,7 +34,7 @@ const createTask = async (title, description, assignee_id) => {
 };
 
 const updateTask = async (id, title, description, priority, status) => {
-  console.log("hi");
+//   console.log("hi");
   try {
     const result = await db.query(
       "UPDATE tasks SET title = $1, description = $2, priority = $3, status = $4, updated_at = CURRENT_TIMESTAMP WHERE id = $5 RETURNING *",
