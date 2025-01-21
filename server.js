@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const { connectDb } = require("./config/db");
+const { connectRedis } = require("./config/redis");
 const userRoutes = require("./routes/userRoutes");
 const taskRoutes = require("./routes/taskRoutes");
 const authRoutes = require("./routes/authRoutes");
@@ -22,6 +23,7 @@ app.use("/api/task", taskRoutes);
 const startServer = async () => {
   try {
     await connectDb();
+    await connectRedis();
     app.listen(process.env.PORT, () => {
       console.log(`Server running on port ${process.env.PORT}`);
     });
